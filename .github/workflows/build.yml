@@ -23,10 +23,10 @@ jobs:
         gradle-version: '8.9'
 
     - name: Build APK with Gradle
-      run: gradle assembleDebug --stacktrace > build-error-log.txt 2>&1 || true
+      run: gradle assembleDebug
 
-    - name: Upload Error Log
+    - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: gradle-build-log
-        path: build-error-log.txt
+        name: app-debug
+        path: app/build/outputs/apk/debug/app-debug.apk
